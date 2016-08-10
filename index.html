@@ -46,22 +46,24 @@
       					<hr>
     					</div>
     					
-    					<div ng-controller="AngularTestController as angularList">
-    					  <span>{{angularList.remaining()}} of {{angularList.angulars.length}} remaining</span>
-    					  [ <a href="" ng-click="angularList.archive()">archive</a> ]
-    					  <ul class>
-    					  	<li ng-repeat="angular in angularList.angulars">
-    					  	  <label class="checkbox" ng-model="angularList.checked">
-    					  	    <input type="checkbox" ng-model="angular.checked">
-    					  	    <span class="checked-{{angular.done}}">{{angular.text}}</span>
-    					  	  </label>
-    					  	</li>
-    					  </ul>
-    					  <form ng-submit="angularList.addAngular()">
-    					  	<input type="text" ng-model="angularList.angularText" placeholder="Add new item here">
-    					  	<input class="btn-primary" type="submit" value="add">
-    					  </form>
-    					</div>
+    					<h2>Todo</h2>
+				    	<div ng-controller="TodoListController as todoList">
+				      		<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+					      	[ <a href="" ng-click="todoList.archive()">archive</a> ]
+					      	<ul class="unstyled">
+					          <li ng-repeat="todo in todoList.todos">
+					          <label class="checkbox">
+					            <input type="checkbox" ng-model="todo.done">
+					            <span class="done-{{todo.done}}">{{todo.text}}</span>
+					          </label>
+					        </li>
+					      </ul>
+					      <form ng-submit="todoList.addTodo()">
+					        <input type="text" ng-model="todoList.todoText"  size="30"
+					               placeholder="add new todo here">
+					        <input class="btn-primary" type="submit" value="add">
+					      </form>
+					</div>
 
 					<!-- Responsive images -->
 					<h3>Responsive images</h3>
