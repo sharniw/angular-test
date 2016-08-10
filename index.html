@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="angularTest">
 <head>
   <meta charset="utf-8"/>
   <title>Angular Test</title>
@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="main.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="angularTest.js"></script>
   
 </head>
 
@@ -41,8 +42,25 @@
 					 <div>
       					<label>Name:</label>
       					<input type="text" ng-model="yourName" placeholder="Enter a name here">
-      					<hr>
       					<h1>Hello {{yourName}}!</h1>
+      					<hr>
+    					</div>
+    					
+    					<div ng-controller="AngularTestController as angularList">
+    					  <span>{{angularList.remaining()}} of {{angularList.angulars.length}} remaining</span>
+    					  [ <a href="" ng-click="angularList.archive()">archive</a> ]
+    					  <ul class>
+    					  	<li ng-repeat="angular in angularList.angulars">
+    					  	  <label class="checkbox" ng-model="angularList.checked">
+    					  	    <input type="checkbox" ng-model="angular.checked">
+    					  	    <span class="checked-{{angular.done}}">{{angular.text}}</span>
+    					  	  </label>
+    					  	</li>
+    					  </ul>
+    					  <form ng-submit="angularList.addAngular()">
+    					  	<input type="text" ng-model="angularList.angularText" placeholder="Add new item here">
+    					  	<input class="btn-primary" type="submit" value="add">
+    					  </form>
     					</div>
 
 					<!-- Responsive images -->
