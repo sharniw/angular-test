@@ -1,18 +1,18 @@
 angular.module('angularTest', [])
-  .controller('AngularListController', function() {
-    var angularList = this;
-    angularList.angulars = [
-      {text:'learn angular', checked:true},
-      {text:'build an angular app', checked:false}];
+  .controller('TodoListController', function() {
+    var todoList = this;
+    todoList.todos = [
+      {text:'learn angular', done:true},
+      {text:'build an angular app', done:false}];
  
-    angularList.addAngular = function() {
-      angularList.angulars.push({text:angularList.angularText, checked:false});
-      angularList.angularText = '';
+    todoList.addTodo = function() {
+      todoList.todos.push({text:todoList.todoText, done:false});
+      todoList.todoText = '';
     };
  
-    angularList.remaining = function() {
+    todoList.remaining = function() {
       var count = 0;
-      angular.forEach(angularList.angulars, function(angular) {
+      angular.forEach(todoList.todos, function(todo) {
         count += todo.done ? 0 : 1;
       });
       return count;
