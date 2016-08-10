@@ -245,3 +245,12 @@ Wide styles
 		border-bottom: 0;
 	}
 }
+
+/* -----------------------
+For AngularJS ToDo List
+------------------------*/
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
